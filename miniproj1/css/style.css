@@ -1,0 +1,35 @@
+
+
+body {
+    position: relative;
+    font-family: "Goudy Bookletter 1911", sans-serif;
+    font-size: 20px;
+    background-color: #FDF8F5;
+    color: #4F4846;
+  }
+
+
+header {
+    background-color: #266150;
+    display: block;
+    text-align: right;
+    height: 60px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    border-bottom: 10px solid black;
+}
+
+ul {
+    display: inline-block;
+    margin: 20px auto;
+    margin-right: 50px;
+    color: white;
+    text-decoration: none;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
