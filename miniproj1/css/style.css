@@ -1,86 +1,110 @@
 
 
-body {
-    position: relative;
-    font-family: "Goudy Bookletter 1911", sans-serif;
-    font-size: 20px;
-    background-color: #FDF8F5;
-    color: #4F4846;
-  }
+/* Below will reset the margin and padding of all 
+elements to 0, effectively removing any default margin or padding that 
+may be applied by the browser's default styles or user agent styles. This can be 
+useful as a CSS reset or normalization technique to ensure consistent and predictable 
+layout and spacing across different web browsers and devices. This how you get rid of 
+little margins and padding you can't see. */
+* {
+  margin:0;
+  padding:0;  
+}
 
+body {
+  position: relative;
+  font-family: "Goudy Bookletter 1911", sans-serif;
+  font-size: 20px;
+  background-color: #fdf8f5;
+  color: #4f4846;
+}
 
 header {
-    background-color: #266150;
-    display: block;
-    text-align: right;
-    height: 60px;
-    width: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    margin-bottom: 0px;
-    border-bottom: 10px solid black;
+  background-color: #266150;
+  display: block;
+  text-align: right;
+  height: 60px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  margin-bottom: 0px;
+  border-bottom: 10px solid black;
 }
 main {
-   
-   margin-top: 70px;
+  margin-top: 70px;
 }
 
 .section1 {
-    height: auto;
-    background-color: yellow;
-    text-align: center;
-    padding: 10px;
+  height: auto;
+  background-color: yellow;
+  text-align: center;
+  padding: 10px;
 }
 .section1Header {
-   
-    font-weight: bold;
-    padding: 10px;
+  font-weight: bold;
+  padding: 10px;
 }
 
 .section2 {
-    
-    background-color: #E8CEBF;
-    text-align: center;
-    padding: 10px;
-    border-top: 3px solid #DDAF94;
+  background-color: #e8cebf;
+  text-align: center;
+  padding: 10px;
+  border-top: 3px solid #ddaf94;
 }
 .section2Header {
-   
-    font-weight: bold;
-    padding: 10px;
+  font-weight: bold;
+  padding: 10px;
 }
 form {
-    /* Center the form on the page */
-    margin: 0 auto;
-    width: 400px;
-    padding: 10px;
-    border: 5px solid #DDAF94;
-    border-radius: 20px;
-  }
+  /* Center the form on the page */
+  margin: 0 auto;
+  width: 400px;
+  padding: 10px;
+  border: 5px solid #ddaf94;
+  border-radius: 20px;
+}
 
 li {
-    display: block;
-    padding: 0px 20px;
-    text-decoration: none;
-    color:#4F4846;
-  }
+  display: block;
+  padding: 0px 20px;
+  text-decoration: none;
+  color: #4f4846;
+}
 ul {
-    display: inline-block;
-    margin: 20px auto;
-    margin-right: 50px;
-    color: white;
-    text-decoration: none;
+  display: inline-block;
+  margin: 20px auto;
+  margin-right: 50px;
+  color: white;
+  text-decoration: none;
 }
 
 a {
-    text-decoration: none;
-    color: white;
+  text-decoration: none;
+  color: white;
 }
 
 button {
-    height: 30px;
-    width: 100px;
-    background-color: #4F4846;
-    color: #FDF8F5;
-  }
+  height: 30px;
+  width: 100px;
+  background-color: #4f4846;
+  color: #fdf8f5;
+}
+
+footer {
+  position: relative;
+  text-align: center;
+  margin-top: 0px;
+  height: auto;
+  top: 0;
+  background-color: #266150;
+  color: #fdf8f5;
+}
+
+#name {
+  text-align: right;
+}
+
+#email {
+  text-align: right;
+}
