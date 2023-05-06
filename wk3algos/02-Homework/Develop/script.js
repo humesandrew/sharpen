@@ -2,7 +2,10 @@
 var generateBtn = document.querySelector("#generate");
 var passwordBtn = document.querySelector("#password");
 
-
+let alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+let randomAlphabet = [];
+let specials = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "+"];
+let randomSpecials = [];
 
 // Write password to the #password input
 function writePassword() {
@@ -16,9 +19,19 @@ if (quantity < 8 || quantity > 128) {
 }
 
 let special = window.prompt("How many special characters?", 0);
+if (special > quantityChars) {
+  window.alert("Incorrect characters");
+  return
+}
 let quantitySpec = Number(special);
 console.log(quantitySpec);
 
+// justworking on total chars (alphabet) and special Chars right now//
+for (let i = 0; i < 2; i++) {
+  let randomIndex = Math.floor(Math.random() * specials.length);
+  randomSpecials.push(specials[randomIndex]);
+  console.log(randomSpecials);
+}
 
 
 
