@@ -11,7 +11,8 @@ let randomSpecials = [];
 function writePassword() {
 let quantity = window.prompt("How many characters?", "8 minimum");
 let quantityChars = Number(quantity);
-console.log(quantityChars);
+console.log("Total characters:" + quantityChars);
+
  // now have I saved my quantity as a number, rather than the default string //
 if (quantity < 8 || quantity > 128) {
   window.alert("Incorrect characters");
@@ -24,14 +25,23 @@ if (special > quantityChars) {
   return
 }
 let quantitySpec = Number(special);
-console.log(quantitySpec);
-
+console.log("Total special characters: " + quantitySpec);
+let alphabetChars = quantityChars - quantitySpec;
 // justworking on total chars (alphabet) and special Chars right now//
-for (let i = 0; i < 2; i++) {
+for (let i = 0; i < alphabetChars; i++) {
+  let randomIndex = Math.floor(Math.random() * alphabet.length);
+  randomSpecials.push(alphabet[randomIndex]);
+ 
+}
+
+
+for (let i = 0; i < quantitySpec; i++) {
   let randomIndex = Math.floor(Math.random() * specials.length);
   randomSpecials.push(specials[randomIndex]);
   console.log(randomSpecials);
 }
+
+
 
 
 
