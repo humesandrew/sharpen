@@ -48,6 +48,8 @@ function generatePassword() {
   // Define a custom comparison function to be used by the sort() method
   // The comparison function takes two elements as arguments (a and b)
   // It returns a random number between -0.5 and 0.5, causing the sort() method to randomly shuffle the elements
+
+  // use this in the future (Math.random() - 0.5) to return a quick random number, for technical interviews//
   let randomComparator = function(a, b) {
     return Math.random() - 0.5;
   };
