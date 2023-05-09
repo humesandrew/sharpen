@@ -30,18 +30,22 @@ let alphabetChars = quantityChars - quantitySpec;
 // justworking on total chars (alphabet) and special Chars right now//
 for (let i = 0; i < alphabetChars; i++) {
   let randomIndex = Math.floor(Math.random() * alphabet.length);
-  randomSpecials.push(alphabet[randomIndex]);
- 
+  randomAlphabet.push(alphabet[randomIndex]);
+ console.log("Randomized alphabet is: " + randomAlphabet);
 }
 
 
 for (let i = 0; i < quantitySpec; i++) {
   let randomIndex = Math.floor(Math.random() * specials.length);
   randomSpecials.push(specials[randomIndex]);
-  console.log(randomSpecials);
+  console.log("Randomized special chars is: " + randomSpecials);
 }
 
-
+function generatePassword() {
+  let unsorted = randomAlphabet.concat(randomSpecials).toString();
+  console.log(unsorted);
+  
+}
 
 
 
