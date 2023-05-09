@@ -42,10 +42,23 @@ for (let i = 0; i < quantitySpec; i++) {
 }
 
 function generatePassword() {
-  let unsorted = randomAlphabet.concat(randomSpecials).toString();
-  console.log(unsorted);
-  
+  // Combine the randomAlphabet and randomSpecials arrays into a single unsorted array
+  let unsorted = randomAlphabet.concat(randomSpecials);
+
+  // Define a custom comparison function to be used by the sort() method
+  // The comparison function takes two elements as arguments (a and b)
+  // It returns a random number between -0.5 and 0.5, causing the sort() method to randomly shuffle the elements
+  let randomComparator = function(a, b) {
+    return Math.random() - 0.5;
+  };
+
+  // Sort the unsorted array using the custom comparison function
+  unsorted.sort(randomComparator);
+
+  // Convert the sorted array to a string and print it to the console
+  console.log(unsorted.join(''));
 }
+
 
 
 
