@@ -58,7 +58,7 @@ function generatePassword() {
   unsorted.sort(randomComparator);
 
   // Convert the sorted array to a string and print it to the console
-  console.log(unsorted.join(''));
+  return unsorted.join('');
 }
 
 
