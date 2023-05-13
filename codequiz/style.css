@@ -18,3 +18,8 @@ nav {
     /* you can adjust this value to match your actual padding */
   }
   
+  .mainDiv {
+    display: flex;
+   flex-direction: column;
+    align-items: center;
+  }
