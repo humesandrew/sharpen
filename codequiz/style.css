@@ -24,4 +24,10 @@ nav {
     align-items: center;
   }
 
-  
+  [data-display="hide"] {
+    display: none;
+  }
+
+  .quizBody[data-display="show"] {
+    display: block;
+  }

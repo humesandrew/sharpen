@@ -1,7 +1,7 @@
 
 let questionIndex = 0;
 let clickBegin = document.getElementById("beginBtn");
-
+let getQuiz = document.getElementById("quizBody");
 
 const question1 = {
     "text": "What is the meaning of life?", 
@@ -25,6 +25,9 @@ const question3 = {
 }
 
 clickBegin.addEventListener("click", () => {
+    let getMain = document.getElementById("mainPage");
+    getMain.setAttribute('data-display', 'hide')
+    quizBody.setAttribute('data-display', 'show')
     showQuiz();
     questionIndex++;
  
