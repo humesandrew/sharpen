@@ -1,8 +1,12 @@
 
 let questionIndex = 0;
+let clickBegin = document.getElementById("beginBtn");
 
-let beginBtn = document.addEventListener("click", () => {
-    console.log(question1)
+
+clickBegin.addEventListener("click", () => {
+    console.log(question1);
+    questionIndex++;
+    console.log(questionIndex);
 })
 
 
