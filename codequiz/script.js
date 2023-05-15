@@ -76,6 +76,17 @@ function showEnd() {
     getQuiz.style.fontSize = "40px";
     const createScore = document.createElement('div');
     getQuiz.appendChild(createScore);
-    createScore.innerHTML = "Your score was: " + localStorage.getItem("quizScore");
+    const initialsForm = document.createElement('form');
+    const initialsLabel = document.createElement('label');
+    const initialsInput = document.createElement('input');
+    initialsLabel.innerHTML = "Please enter your initials:";
+    const createBr = document.createElement('br');
+    initialsLabel.appendChild(createBr);
+    initialsInput.type = "text";
+    initialsForm.appendChild(initialsLabel);
+    initialsForm.appendChild(initialsInput);
+    createScore.appendChild(initialsForm);
+    createScore.innerHTML += "Your score was: " + localStorage.getItem("quizScore");
+    createScore.appendChild(createBr);
     getBtn.innerHTML = "Save score.";
 }
