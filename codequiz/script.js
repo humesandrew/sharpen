@@ -7,6 +7,7 @@ let getOpt1 = document.getElementById("opt1");
 let getOpt2 = document.getElementById("opt2");
 let getOpt3 = document.getElementById("opt3");
 let getBtn = document.getElementById("beginBtn");
+localStorage.setItem("quizScore", "0");
 
 const questions = [
   {
@@ -29,14 +30,14 @@ const questions = [
     text: "What is the retina if the eye is a camera?",
     options: ["The lens.", "The aperature.", "The film."],
     answer: 2,
-  }
+  },
 ];
 
 clickBegin.addEventListener("click", () => {
   getMain.setAttribute("data-display", "hide");
   quizBody.setAttribute("data-display", "show");
   showQuiz();
-  getBtn.addEventListener('click', evaluateTrue);
+  getBtn.addEventListener("click", evaluateTrue);
 });
 
 function showQuiz() {
@@ -51,14 +52,30 @@ function showQuiz() {
 
 function evaluateTrue() {
   const question = questions[questionIndex];
-  const selectedOption = getForm.querySelector('input[name="quiz-option"]:checked');
+  const selectedOption = getForm.querySelector(
+    'input[name="quiz-option"]:checked'
+  );
   if (selectedOption && selectedOption.value === String(question.answer)) {
-    console.log("Correct!!!!")
+    console.log("Correct!!!!");
+    let score = parseInt(localStorage.getItem("quizScore"));
+    score++;
+    localStorage.setItem("quizScore", score);
   } else {
-    console.log("Incorrect douchebag.")
+    console.log("Incorrect douchebag.");
   }
   questionIndex++;
   if (questionIndex < questions.length) {
     showQuiz();
+  } else {
+    showEnd();
   }
+}
+
+function showEnd() {
+    getQuiz.innerHTML = "Thank you for taking the quiz.";
+    getQuiz.style.fontSize = "40px";
+    const createScore = document.createElement('div');
+    getQuiz.appendChild(createScore);
+    createScore.innerHTML = "Your score was: " + localStorage.getItem("quizScore");
+    getBtn.innerHTML = "Save score.";
 }
