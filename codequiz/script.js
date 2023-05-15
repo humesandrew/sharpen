@@ -1,49 +1,64 @@
-
 let questionIndex = 0;
 let clickBegin = document.getElementById("beginBtn");
 let getQuiz = document.getElementById("quizBody");
+let getMain = document.getElementById("mainPage");
+let getForm = document.getElementById("getForm");
+let getOpt1 = document.getElementById("opt1");
+let getOpt2 = document.getElementById("opt2");
+let getOpt3 = document.getElementById("opt3");
+let getBtn = document.getElementById("beginBtn");
 
-const question1 = {
-    "text": "What is the meaning of life?", 
-    "opt1": "Life",
-    "opt2": "42",
-    "opt3": "Love and happiness."
-}
-
-const question2 = {
-    "text": "What is the capitol of Colorado?", 
-    "opt1": "Denver",
-    "opt2": "Pueblo",
-    "opt3": "Boulder"
-}
-
-const question3 = {
-    "text": "How long have I been trying to find a job in coding?", 
-    "opt1": "Not long enough.",
-    "opt2": "Too long.",
-    "opt3": "What is a career switch?"
-}
+const questions = [
+  {
+    text: "What is the meaning of life?",
+    options: ["Life", "42", "Love and happiness."],
+    answer: 1,
+    btnText: "Submit",
+  },
+  {
+    text: "What is the capital of Colorado?",
+    options: ["Denver", "Pueblo", "Boulder"],
+    answer: 0,
+  },
+  {
+    text: "How long have I been trying to find a job in coding?",
+    options: ["Not long enough.", "Too long.", "What is a career switch?"],
+    answer: 1,
+  },
+  {
+    text: "What is the retina if the eye is a camera?",
+    options: ["The lens.", "The aperature.", "The film."],
+    answer: 2,
+  }
+];
 
 clickBegin.addEventListener("click", () => {
-    let getMain = document.getElementById("mainPage");
-    getMain.setAttribute('data-display', 'hide')
-    quizBody.setAttribute('data-display', 'show')
-    showQuiz();
-    questionIndex++;
- 
-})
+  getMain.setAttribute("data-display", "hide");
+  quizBody.setAttribute("data-display", "show");
+  showQuiz();
+  getBtn.addEventListener('click', evaluateTrue);
+});
 
 function showQuiz() {
-    if (questionIndex === 0) {
-    console.log(questionIndex);
-    
-console.log(question1);
+  const question = questions[questionIndex];
+  getQuiz.innerHTML = question.text;
+  getQuiz.appendChild(getForm);
+  getOpt1.innerHTML = question.options[0];
+  getOpt2.innerHTML = question.options[1];
+  getOpt3.innerHTML = question.options[2];
+  getBtn.innerHTML = question.btnText || "Submit";
 }
 
-else if (questionIndex === 1) {
-    console.log(question2)
-}
-else if (questionIndex === 2) {
-    console.log(question3);
-}
+function evaluateTrue() {
+  const question = questions[questionIndex];
+  const selectedOption = getForm.querySelector('input[name="quiz-option"]:checked');
+  if (selectedOption && selectedOption.value === String(question.answer)) {
+    console.log("Correct!!!!")
+  } else {
+    console.log("Incorrect douchebag.")
+  }
+  questionIndex++;
+  if (questionIndex < questions.length) {
+    showQuiz();
+  }
 }
