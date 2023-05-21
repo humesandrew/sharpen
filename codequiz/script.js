@@ -8,6 +8,8 @@ let getOpt2 = document.getElementById("opt2");
 let getOpt3 = document.getElementById("opt3");
 let getBtn = document.getElementById("beginBtn");
 localStorage.setItem("quizScore", "0");
+localStorage.setItem("High Score", "initials: , Score: 0");
+
 
 const questions = [
   {
@@ -72,7 +74,8 @@ function evaluateTrue() {
 }
 
 function showEnd() {
-    getQuiz.innerHTML = "Thank you for taking the quiz.";
+  getBtn.style.display = "none";
+  getQuiz.innerHTML = "Thank you for taking the quiz.";
     getQuiz.style.fontSize = "40px";
     const createScore = document.createElement('div');
     getQuiz.appendChild(createScore);
@@ -81,6 +84,7 @@ function showEnd() {
     const initialsInput = document.createElement('input');
     initialsLabel.innerHTML = "Please enter your initials:";
     const createBr = document.createElement('br');
+    const createBtn = document.createElement("button");
     initialsLabel.appendChild(createBr);
     initialsInput.type = "text";
     initialsForm.appendChild(initialsLabel);
@@ -88,5 +92,11 @@ function showEnd() {
     createScore.appendChild(initialsForm);
     createScore.innerHTML += "Your score was: " + localStorage.getItem("quizScore");
     createScore.appendChild(createBr);
-    getBtn.innerHTML = "Save score.";
+    createScore.appendChild(createBtn);
+    createBtn.innerHTML = "Save score.";
+    createBtn.addEventListener('click', () => {
+      console.log('hello');
+    });
 }
+
+
