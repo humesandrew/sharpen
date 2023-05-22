@@ -9,6 +9,8 @@ let getOpt3 = document.getElementById("opt3");
 let getBtn = document.getElementById("beginBtn");
 localStorage.setItem("quizScore", "0");
 
+
+
 const questions = [
   {
     text: "What is the meaning of life?",
@@ -72,21 +74,39 @@ function evaluateTrue() {
 }
 
 function showEnd() {
-    getQuiz.innerHTML = "Thank you for taking the quiz.";
-    getQuiz.style.fontSize = "40px";
-    const createScore = document.createElement('div');
-    getQuiz.appendChild(createScore);
-    const initialsForm = document.createElement('form');
-    const initialsLabel = document.createElement('label');
-    const initialsInput = document.createElement('input');
-    initialsLabel.innerHTML = "Please enter your initials:";
-    const createBr = document.createElement('br');
-    initialsLabel.appendChild(createBr);
-    initialsInput.type = "text";
-    initialsForm.appendChild(initialsLabel);
-    initialsForm.appendChild(initialsInput);
-    createScore.appendChild(initialsForm);
-    createScore.innerHTML += "Your score was: " + localStorage.getItem("quizScore");
-    createScore.appendChild(createBr);
-    getBtn.innerHTML = "Save score.";
+  getBtn.style.display = "none";
+  getQuiz.innerHTML = "Thank you for taking the quiz.";
+  getQuiz.style.fontSize = "40px";
+
+  const createScore = document.createElement('div');
+  getQuiz.appendChild(createScore);
+
+  const initialsForm = document.createElement('form');
+  const initialsLabel = document.createElement('label');
+  const initialsInput = document.createElement('input');
+  initialsLabel.innerHTML = "Please enter your initials:";
+  const createBr = document.createElement('br');
+  const createBtn = document.createElement("button");
+  initialsLabel.appendChild(createBr);
+  initialsInput.type = "text";
+  initialsForm.appendChild(initialsLabel);
+  initialsForm.appendChild(initialsInput);
+  createScore.appendChild(initialsForm);
+
+  const scoreDisplay = document.createElement('div');
+  createScore.appendChild(scoreDisplay);
+
+  scoreDisplay.innerHTML = "Your score was: " + localStorage.getItem("quizScore");
+
+ 
+  createScore.appendChild(createBtn);
+  createBtn.innerHTML = "Save score.";
+
+  createBtn.addEventListener('click', () => {
+    const initialsValue = initialsInput.value;
+    console.log("Initials value:", initialsValue);
+    localStorage.setItem("Initials", initialsValue);
+    console.log("Updated localStorage:", localStorage);
+  });
 }
+
