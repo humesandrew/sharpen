@@ -7,9 +7,10 @@ let getOpt1 = document.getElementById("opt1");
 let getOpt2 = document.getElementById("opt2");
 let getOpt3 = document.getElementById("opt3");
 let getBtn = document.getElementById("beginBtn");
+let getTimer = document.getElementById("timer");
+let timeLeft = 120;
+let timerInterval;
 localStorage.setItem("quizScore", "0");
-
-
 
 const questions = [
   {
@@ -35,11 +36,26 @@ const questions = [
   },
 ];
 
+function startTimer() {
+  getTimer.innerHTML = timeLeft;
+  timerInterval = setInterval(function() {
+    timeLeft--;
+    getTimer.innerHTML = timeLeft;
+    if (timeLeft <= 0) {
+      clearInterval(timerInterval);
+      getTimer.innerHTML = "You failed loser.";
+      showEnd();
+    }
+  }, 1000);
+}
+
+
 clickBegin.addEventListener("click", () => {
   getMain.setAttribute("data-display", "hide");
   quizBody.setAttribute("data-display", "show");
   showQuiz();
   getBtn.addEventListener("click", evaluateTrue);
+  startTimer();
 });
 
 function showQuiz() {
@@ -54,38 +70,43 @@ function showQuiz() {
 
 function evaluateTrue() {
   const question = questions[questionIndex];
-  const selectedOption = getForm.querySelector(
-    'input[name="quiz-option"]:checked'
-  );
+  const selectedOption = getForm.querySelector('input[name="quiz-option"]:checked');
   if (selectedOption && selectedOption.value === String(question.answer)) {
     console.log("Correct!!!!");
     let score = parseInt(localStorage.getItem("quizScore"));
     score++;
     localStorage.setItem("quizScore", score);
+    timeLeft += 20;
   } else {
     console.log("Incorrect douchebag.");
+    timeLeft -= 20;
+    if (timeLeft < 0) {
+      timeLeft = 0;
+    }
   }
   questionIndex++;
   if (questionIndex < questions.length) {
     showQuiz();
   } else {
+    clearInterval(timerInterval);
     showEnd();
   }
 }
+
 
 function showEnd() {
   getBtn.style.display = "none";
   getQuiz.innerHTML = "Thank you for taking the quiz.";
   getQuiz.style.fontSize = "40px";
 
-  const createScore = document.createElement('div');
+  const createScore = document.createElement("div");
   getQuiz.appendChild(createScore);
 
-  const initialsForm = document.createElement('form');
-  const initialsLabel = document.createElement('label');
-  const initialsInput = document.createElement('input');
+  const initialsForm = document.createElement("form");
+  const initialsLabel = document.createElement("label");
+  const initialsInput = document.createElement("input");
   initialsLabel.innerHTML = "Please enter your initials:";
-  const createBr = document.createElement('br');
+  const createBr = document.createElement("br");
   const createBtn = document.createElement("button");
   initialsLabel.appendChild(createBr);
   initialsInput.type = "text";
@@ -93,20 +114,20 @@ function showEnd() {
   initialsForm.appendChild(initialsInput);
   createScore.appendChild(initialsForm);
 
-  const scoreDisplay = document.createElement('div');
+  const scoreDisplay = document.createElement("div");
   createScore.appendChild(scoreDisplay);
 
-  scoreDisplay.innerHTML = "Your score was: " + localStorage.getItem("quizScore");
+  scoreDisplay.innerHTML =
+    "Your score was: " + localStorage.getItem("quizScore");
 
- 
   createScore.appendChild(createBtn);
   createBtn.innerHTML = "Save score.";
 
-  createBtn.addEventListener('click', () => {
+  createBtn.addEventListener("click", () => {
     const initialsValue = initialsInput.value;
     console.log("Initials value:", initialsValue);
     localStorage.setItem("Initials", initialsValue);
     console.log("Updated localStorage:", localStorage);
   });
+  clearInterval(timerInterval)
 }
-
