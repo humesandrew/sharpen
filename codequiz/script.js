@@ -8,6 +8,7 @@ let getOpt2 = document.getElementById("opt2");
 let getOpt3 = document.getElementById("opt3");
 let getBtn = document.getElementById("beginBtn");
 let getTimer = document.getElementById("timer");
+let getHigh = document.getElementById('highScorer');
 let timeLeft = 120;
 let timerInterval;
 localStorage.setItem("quizScore", "0");
@@ -35,6 +36,16 @@ const questions = [
     answer: 2,
   },
 ];
+
+function showHighScorer() {
+  const initials = localStorage.getItem("Initials");
+  if (initials) {
+    console.log(initials);
+    getHigh.innerHTML = initials;
+  }
+
+}
+showHighScorer();
 
 function startTimer() {
   getTimer.innerHTML = timeLeft;

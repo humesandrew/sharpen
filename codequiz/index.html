@@ -15,22 +15,29 @@
     <main>
       <div class="mainDiv">
         <h2 id="mainPage" data-display="show">Welcome to the code quiz</h2>
-        
-        <div class="quizBody" id="quizBody" data-display="hide"><h2>Quiz body</h2>
+
+        <div class="quizBody" id="quizBody" data-display="hide">
+          <h2>Quiz body</h2>
           <div id="getForm">
-          <form>
-            <input type="radio"  name="quiz-option" value="0">
-            <label for="option1" id="opt1"></label><br>
-            <input type="radio"  name="quiz-option" value="1">
-            <label for="option2" id="opt2"></label><br>
-            <input type="radio"  name="quiz-option" value="2">
-            <label for="option3" id="opt3"></label>
-          </form> </div></div>
+            <form>
+              <input type="radio" name="quiz-option" value="0" />
+              <label for="option1" id="opt1"></label><br />
+              <input type="radio" name="quiz-option" value="1" />
+              <label for="option2" id="opt2"></label><br />
+              <input type="radio" name="quiz-option" value="2" />
+              <label for="option3" id="opt3"></label>
+            </form>
+          </div>
+        </div>
         <button id="beginBtn">Begin Quiz</button>
       </div>
-      
     </main>
-    <footer class="footer">Recent high scorer: </footer>
+    <footer class="footer">
+      Recent high scorer:
+      <div id="highScorer">
+  
+      </div>
+    </footer>
     <script src="./script.js"></script>
   </body>
 </html>
