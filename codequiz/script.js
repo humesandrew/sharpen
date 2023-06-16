@@ -35,6 +35,11 @@ const questions = [
     options: ["The lens.", "The aperature.", "The film."],
     answer: 2,
   },
+  {
+    text: "Who let the dogs out?",
+    options: ["Someone naughty.", "Baha Men.", "Kafka."],
+    answer: 2,
+  },
 ];
 
 function showHighScorer() {
