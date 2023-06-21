@@ -40,6 +40,10 @@ const questions = [
     options: ["Someone naughty.", "Baha Men.", "Kafka."],
     answer: 2,
   },
+  {
+    text: "What is a troglodyte?",
+    options: ["A rich person.", "A troll.", "A handtool."]
+  }
 ];
 
 function showHighScorer() {
@@ -147,3 +151,4 @@ function showEnd() {
   });
   clearInterval(timerInterval)
 }
+
